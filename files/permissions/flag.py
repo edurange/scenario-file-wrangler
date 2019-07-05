@@ -40,10 +40,10 @@ def verifyCompletion():
 # Check for files
 print verifyCompletion()
 
-if verifyCompletion == 4:
+if verifyCompletion == 2:
     # Check for files
-    #codeDir = curDir.replace('manipulate', '.codes')
-    filepath = '/etc/codes/perm.txt'
+    codeDir = curDir.replace('permissions', 'codes')
+    filepath = codeDir + '/permissions.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:

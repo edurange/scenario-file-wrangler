@@ -30,9 +30,9 @@ def verifyCompletion():
     return file1 + renamed_file1 + file2 + copied_file2
 
 # Check for files
-if verifyCompletion() == 4:
-    #codeDir = curDir.replace('manipulate', '.codes')
-    filepath = '/etc/codes/man.txt'
+if verifyCompletion() == 2:
+    codeDir = curDir.replace('manipulate', 'codes')
+    filepath = codeDir + '/manipulate.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:
