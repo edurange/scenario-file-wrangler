@@ -34,8 +34,8 @@ for studentDIR in "${DIRS[@]}"; do
     perm_secret=$(edurange-get-var user $player permissions)
     echo "SECRET CODE: $perm_secret" > /$studentDIR/codes/permissions.txt
 
-    chmod 400 /$studentDIR/codes/manipulate.txt
-    chmod 400 /$studentDIR/codes/permissions.txt
+    # chmod 400 /$studentDIR/codes/manipulate.txt
+    # chmod 400 /$studentDIR/codes/permissions.txt
 
     # Function to create a random number every time it is called
     # random_Number(){
