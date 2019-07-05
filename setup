@@ -7,11 +7,11 @@ DIRS=()
 #copy motd into /etc/
 cat /tmp/scenario-file-wrangler/motd/message.txt >> /etc/motd
 
-#copy codes into /etc/
-cp /tmp/scenario-file-wrangler/codes/ /etc
+cat /tmp/scenario-file-wrangler/codes/man.txt >> /etc/
+cat /tmp/scenario-file-wrangler/codes/perm.txt >> /etc/
 
-chmod 400 /etc/codes/man.txt
-chmod 400 /etc/codes/perm.txt
+# chmod 400 /etc/codes/man.txt
+# chmod 400 /etc/codes/perm.txt
 
 for FILE in /home/*; do
     if [[ -d $FILE ]]; then
