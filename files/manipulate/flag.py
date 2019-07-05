@@ -31,8 +31,8 @@ def verifyCompletion():
 
 # Check for files
 if verifyCompletion() == 4:
-    codeDir = curDir.replace('manipulate', '.codes')
-    filepath = codeDir + '/man.txt'
+    #codeDir = curDir.replace('manipulate', '.codes')
+    filepath = '/etc/codes/man.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:

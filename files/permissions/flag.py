@@ -42,8 +42,8 @@ print verifyCompletion()
 
 if verifyCompletion == 4:
     # Check for files
-    codeDir = curDir.replace('manipulate', '.codes')
-    filepath = codeDir + '/perm.txt'
+    #codeDir = curDir.replace('manipulate', '.codes')
+    filepath = '/etc/codes/perm.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:
