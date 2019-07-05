@@ -37,10 +37,7 @@ def verifyCompletion():
 
     return perm1 + copied_perm1 + perm2 + copied_perm2
 
-# Check for files
-print verifyCompletion()
-
-if verifyCompletion == 2:
+if verifyCompletion() == 2:
     # Check for files
     codeDir = curDir.replace('permissions', 'codes')
     filepath = codeDir + '/permissions.txt'
