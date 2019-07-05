@@ -7,12 +7,6 @@ DIRS=()
 #copy motd into /etc/
 cat /tmp/scenario-file-wrangler/motd/message.txt >> /etc/motd
 
-cat /tmp/scenario-file-wrangler/codes/man.txt >> /etc/
-cat /tmp/scenario-file-wrangler/codes/perm.txt >> /etc/
-
-# chmod 400 /etc/codes/man.txt
-# chmod 400 /etc/codes/perm.txt
-
 for FILE in /home/*; do
     if [[ -d $FILE ]]; then
         DIRS+=( "$FILE" )
@@ -33,6 +27,15 @@ for studentDIR in "${DIRS[@]}"; do
 
     # Copy the file hierarchy to each home directory
     cp -R /tmp/scenario-file-wrangler/files/* /$studentDIR/
+
+    man_secret=$(edurange-get-var user $player manipulate)
+    echo "SECRET CODE: $man_secret" > /$studentDIR/codes/manipulate.txt
+
+    perm_secret=$(edurange-get-var user $player permissions)
+    echo "SECRET CODE: $perm_secret" > /$studentDIR/codes/permissions.txt
+
+    chmod 400 /$studentDIR/codes/manipulate.txt
+    chmod 400 /$studentDIR/codes/permissions.txt
 
     # Function to create a random number every time it is called
     # random_Number(){
