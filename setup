@@ -17,7 +17,7 @@ for studentDIR in "${DIRS[@]}"; do
     # imageLoc is an array used to disperse images to multiple locations that I set up later
     # imageLoc=(/$studentDIR/i/b/e/j/l/s/v/ /$studentDIR/i/a/g/kitty/m/q/w/ /$studentDIR/i/c/e/h/k/ /$studentDIR/i/a/e/kitty/ /$studentDIR/i/z/g/j/l/o/w/ /$studentDIR/i/d/f/kitty/k/n/t/)
     # imageName=(002edurange.jpg edurange001.gif edurange3.GIF 4edurange.jpeg edurange006weeeeeee.png edurange5meow.JPG)
-
+    player=$(basename $studentDIR)
     # copy motd into each home directory
     #cat /tmp/scenario-file-wrangler/motd/motd_entry > /home/$studentDIR/instructions.txt
     cp /tmp/scenario-file-wrangler/motd/message.txt /$studentDIR/
@@ -28,11 +28,11 @@ for studentDIR in "${DIRS[@]}"; do
     # Copy the file hierarchy to each home directory
     cp -R /tmp/scenario-file-wrangler/files/* /$studentDIR/
 
-    man_secret=$(edurange-get-var user $player manipulate)
-    echo "SECRET CODE: $man_secret" > /$studentDIR/codes/manipulate.txt
+    man_flag=$(edurange-get-var user $player manipulate)
+    echo "SECRET CODE: $man_flag" > /$studentDIR/codes/manipulate.txt
 
-    perm_secret=$(edurange-get-var user $player permissions)
-    echo "SECRET CODE: $perm_secret" > /$studentDIR/codes/permissions.txt
+    perm_flag=$(edurange-get-var user $player permissions)
+    echo "SECRET CODE: $perm_flag" > /$studentDIR/codes/permissions.txt
 
     # chmod 400 /$studentDIR/codes/manipulate.txt
     # chmod 400 /$studentDIR/codes/permissions.txt
