@@ -30,7 +30,7 @@ def verifyCompletion():
     return file1 + renamed_file1 + file2 + copied_file2
 
 # Check for files
-if verifyCompletion() == 1: # Change this to 4 after testing
+if verifyCompletion() == 4: 
     codeDir = curDir.replace('manipulate', 'codes')
     filepath = codeDir + '/manipulate.txt'
     with open(filepath) as fp:

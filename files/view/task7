@@ -1,0 +1,9 @@
+Hidden files begin with a . and are not displayed unless you specify an option with the ls command.
+
+
+Steps:
+1. View the manual entry for the ls command again.
+2. Scroll through to manual to find the option that will not ignore hidden files.
+3. Exit the manual (Note that you need to type q to get out of the manual!) and try this command with the option you found. Don’t forget to include the - or --!
+4. Answer question 7 in EDURange
+5. Go to the next task by typing the following into the prompt: cat task8

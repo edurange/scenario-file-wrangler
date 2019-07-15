@@ -1,0 +1,10 @@
+Steps
+1. View the manual entry for the ls command. Notice in the SYNOPSIS, the format of the command is as follows:
+
+   ls [OPTION]... [FILE]...
+
+   Anything in square brackets is optional. In this case, we can use ls along with one of the options listed with - or -- and we could add a complete file path.
+2. Scroll through to manual to find the option that will provide a long listing format for the ls command.
+3. Exit the manual (Note that you need to type q to get out of the manual!) and try this command with the option you found. Don’t forget to include the - or --!
+4. Answer question 4 in EDURange
+5. Go to the next task by typing the following into the prompt: cat task5

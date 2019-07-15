@@ -1,0 +1,19 @@
+Steps:
+1. run the list (ls) command to view the files in this directory.
+2. Read the following resource on Linux file permissions: https://www.guru99.com/file-permissions.html
+3. Copy the perm1.txt to copied_perm1.txt
+4. Changing permissions
+   a. Look up the manual entry for the chmod command.
+   b. Use the chmod command to change the file permissions to:
+      i.   Owner = Read + Write
+      ii.  User = Read + Write
+      iii. Group = No permissions
+   c. Copy the perm2.txt to copied_perm2.txt
+   d. Use the chmod command to change the file permissions to:
+      i.   Owner = Read + Write + Execute
+      ii.  User = Read + Write
+      iii. Group = Read only
+5. Type the following into the terminal for the flag: sudo python perflag.pyc
+6. Answer question 12 in EDURange
+
+Exercise Complete!
