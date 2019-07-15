@@ -35,8 +35,10 @@ for studentDIR in "${DIRS[@]}"; do
     chmod 600 /$studentDIR/codes/permissions.txt
 
     # Set file to run as root
-    echo "$player ALL = (root) NOPASSWD: /$studentDIR/manipulate/manflag.pyc" >> /etc/sudoers
-    echo "$player ALL = (root) NOPASSWD: /$studentDIR/permissions/perflag.pyc" >> /etc/sudoers
+    chown root:root $studentDIR/manipulate/manflag.pyc
+    chmod 4775 $studentDIR/manipulate/manflag.pyc
+    #echo "$player ALL = (root) NOPASSWD: $studentDIR/manipulate/manflag.pyc" >> /etc/sudoers
+    #echo "$player ALL = (root) NOPASSWD: $studentDIR/permissions/perflag.pyc" >> /etc/sudoers
 
 done
 rm -r /tmp/scenario-file-wrangler
