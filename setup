@@ -34,10 +34,10 @@ for studentDIR in "${DIRS[@]}"; do
     chmod 600 /$studentDIR/codes/manipulate.txt
     chmod 600 /$studentDIR/codes/permissions.txt
 
-    # Set file to run as root
-    chown root:root $studentDIR/manipulate/manflag.pyc
-    chmod 4775 $studentDIR/manipulate/manflag.pyc
-    #echo "$player ALL = (root) NOPASSWD: $studentDIR/manipulate/manflag.pyc" >> /etc/sudoers
+    # Set python to run as root
+    #chown root:root $studentDIR/manipulate/manflag.pyc
+    #chmod 4775 $studentDIR/manipulate/manflag.pyc
+    echo "$player ALL=(ALL) NOPASSWD: /usr/bin/python" >> /etc/sudoers
     #echo "$player ALL = (root) NOPASSWD: $studentDIR/permissions/perflag.pyc" >> /etc/sudoers
 
 done
