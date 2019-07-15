@@ -31,7 +31,7 @@ for studentDIR in "${DIRS[@]}"; do
     echo "SECRET FLAG: $perm_flag" > /$studentDIR/codes/permissions.txt
 
     # Set file permissions
-    #chmod 400 /$studentDIR/codes/manipulate.txt
-    #chmod 400 /$studentDIR/codes/permissions.txt
+    chmod 711 /$studentDIR/manipulate/manflag.pyc
+    chmod 711 /$studentDIR/permissions/perflag.pyc
 done
 rm -r /tmp/scenario-file-wrangler
