@@ -1,3 +1,10 @@
+ _______        _      __ ___
+|__   __|      | |    /_ |__ \
+   | | __ _ ___| | __  | |  ) |
+   | |/ _` / __| |/ /  | | / /
+   | | (_| \__ \   <   | |/ /_
+   |_|\__,_|___/_|\_\  |_|____|
+
 Steps:
 1. run the list (ls) command to view the files in this directory.
 2. Read the following resource on Linux file permissions: https://www.guru99.com/file-permissions.html
@@ -17,3 +24,4 @@ Steps:
 6. Answer question 12 in EDURange
 
 Exercise Complete!
+==========================================================================

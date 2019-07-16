@@ -1,3 +1,10 @@
+ _______        _       ___
+|__   __|      | |     / _ \
+   | | __ _ ___| | __ | (_) |
+   | |/ _` / __| |/ /  \__, |
+   | | (_| \__ \   <     / /
+   |_|\__,_|___/_|\_\   /_/
+                            
 To go back a directory, you would type the following command:
 
 cd ..
@@ -9,3 +16,4 @@ Steps:
 2. Type pwd into the prompt. You should see that you are back in the home directory for the account you log in with.
 3. Answer question 8 in EDURange
 4. Go to the next task by typing the following into the prompt: cat task10
+==========================================================================

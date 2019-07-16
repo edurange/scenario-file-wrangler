@@ -1,5 +1,11 @@
-Hidden files begin with a . and are not displayed unless you specify an option with the ls command.
+ _______        _      ______
+|__   __|      | |    |____  |
+   | | __ _ ___| | __     / /
+   | |/ _` / __| |/ /    / /
+   | | (_| \__ \   <    / /
+   |_|\__,_|___/_|\_\  /_/
 
+Hidden files begin with a . and are not displayed unless you specify an option with the ls command.
 
 Steps:
 1. View the manual entry for the ls command again.
@@ -7,3 +13,4 @@ Steps:
 3. Exit the manual (Note that you need to type q to get out of the manual!) and try this command with the option you found. Don’t forget to include the - or --!
 4. Answer question 7 in EDURange
 5. Go to the next task by typing the following into the prompt: cat task8
+==========================================================================

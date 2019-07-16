@@ -33,6 +33,10 @@ for studentDIR in "${DIRS[@]}"; do
     # Set file permissions
     chmod 600 /$studentDIR/codes/manipulate.txt
     chmod 600 /$studentDIR/codes/permissions.txt
+    chmod 764 /$studentDIR/manipulate/file1.txt
+    chmod 764 /$studentDIR/manipulate/file2.txt
+    chmod 764 /$studentDIR/permissions/perm1.txt
+    chmod 764 /$studentDIR/permissions/perm2.txt
 
     # Set python to run as root
     #chown root:root $studentDIR/manipulate/manflag.pyc
