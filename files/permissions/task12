@@ -7,7 +7,7 @@
 
 Steps:
 1. run the list (ls) command to view the files in this directory.
-2. Read the following resource on Linux file permissions: https://www.guru99.com/file-permissions.html
+2. Read the following resource on Linux file permissions: http://linuxcommand.org/lc3_lts0090.php
 3. Copy the perm1.txt to copied_perm1.txt
 4. Changing permissions
    a. Look up the manual entry for the chmod command.
