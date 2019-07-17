@@ -35,10 +35,12 @@ for studentDIR in "${DIRS[@]}"; do
     chmod 600 /$studentDIR/codes/permissions.txt
 
     # Set file ownership
-    chown $player /$studentDIR/manipulate/file1.txt
-    chown $player /$studentDIR/manipulate/file2.txt
-    chown $player /$studentDIR/permissions/perm1.txt
-    chown $player /$studentDIR/permissions/perm2.txt
+    chown $player -R /$studentDIR/manipulate/
+    chown $player -R /$studentDIR/permissions/
+    #chown $player /$studentDIR/manipulate/file1.txt
+    #chown $player /$studentDIR/manipulate/file2.txt
+    #chown $player /$studentDIR/permissions/perm1.txt
+    #chown $player /$studentDIR/permissions/perm2.txt
 
     # Set python to run as root
     #chown root:root $studentDIR/manipulate/manflag.pyc
