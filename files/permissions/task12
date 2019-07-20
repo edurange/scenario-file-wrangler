@@ -13,13 +13,13 @@ Steps:
    a. Look up the manual entry for the chmod command.
    b. Use the chmod command to change the file permissions to:
       i.   Owner = Read + Write
-      ii.  User = Read + Write
-      iii. Group = No permissions
+      ii.  Group = Read + Write
+      iii. User  = No permissions
    c. Copy the perm2.txt to copied_perm2.txt
    d. Use the chmod command to change the file permissions to:
       i.   Owner = Read + Write + Execute
-      ii.  User = Read + Write
-      iii. Group = Read only
+      ii.  Group = Read + Write
+      iii. User  = Read only
 5. Type the following into the terminal for the flag: sudo python perflag.pyc
 6. Answer question 12 in EDURange
 
