@@ -6,7 +6,7 @@ Groups:
 - Name: Instructor
   Instructions:
   Access:
-  - Instance: FileWrangler_Inst
+  - Instance: file_wrangler
     Administrator: true
     IP_Visible: true
   Users:
@@ -117,7 +117,7 @@ Scoring:
     Points: '1'
   Order: 10
   Points: 1
-- Text: What is the flag you discovered by running sudo python manflag.pyc in the manipulate directory?
+- Text: What is the flag you discovered by running sudo manflag in the manipulate directory?
   Type: String
   Options:
   - variable-group-player
@@ -126,7 +126,7 @@ Scoring:
     Points: '10'
   Order: 11
   Points: 10
-- Text: What is the flag you discovered by running sudo python perflag.pyc in the permissions directory?
+- Text: What is the flag you discovered by running sudo perflag in the permissions directory?
   Type: String
   Options:
   - variable-group-player
