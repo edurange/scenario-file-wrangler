@@ -13,7 +13,7 @@ Steps:
 3. Copying files
    a. Look up the manual entry for the cp command.
    b. Use the cp command to copy file2.txt to copied_file2.txt.
-4. Type the following into the prompt for the flag: sudo python manflag.pyc
+4. Type the following into the prompt for the flag: sudo manflag
 5. Answer question 11 in EDURange
 6. Change into the permissions directory.
 7. Go to the next task by typing the following into the prompt: cat task12

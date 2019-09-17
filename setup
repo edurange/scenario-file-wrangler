@@ -1,52 +1,12 @@
 #!/bin/bash
+set -eoux pipefail
 
-# R is for assigning a random number to it
-R=0
-DIRS=()
+mv /home/ubuntu/file_wrangler/python/perflag /usr/bin/perflag
+mv /home/ubuntu/file_wrangler/python/manflag /usr/bin/manflag
+chmod u+x,g+x,o-rwx /usr/bin/perflag
+chmod u+x,g+x,o-rwx /usr/bin/manflag
 
-#copy motd into /etc/
-cat /tmp/scenario-file-wrangler/motd/message.txt >> /etc/motd
-
-for FILE in /home/*; do
-    if [[ -d $FILE ]]; then
-        DIRS+=( "$FILE" )
-        echo $FILE
-    fi
-done
-for studentDIR in "${DIRS[@]}"; do
-    player=$(basename $studentDIR)
-    cp /tmp/scenario-file-wrangler/motd/message.txt /$studentDIR/
-
-    # Add an alias for all home directories
-    cat /tmp/scenario-file-wrangler/cd_alias >> /$studentDIR/.bashrc
-
-    # Copy the file hierarchy to each home directory
-    cp -R /tmp/scenario-file-wrangler/files/* /$studentDIR/
-
-    # Use EDURange variables for flags
-    man_flag=$(edurange-get-var user $player manipulate)
-    echo "SECRET FLAG: $man_flag" > /$studentDIR/codes/manipulate.txt
-
-    perm_flag=$(edurange-get-var user $player permissions)
-    echo "SECRET FLAG: $perm_flag" > /$studentDIR/codes/permissions.txt
-
-    # Set file permissions
-    chmod 600 /$studentDIR/codes/manipulate.txt
-    chmod 600 /$studentDIR/codes/permissions.txt
-
-    # Set file ownership
-    chown $player -R /$studentDIR/manipulate/
-    chown $player -R /$studentDIR/permissions/
-    #chown $player /$studentDIR/manipulate/file1.txt
-    #chown $player /$studentDIR/manipulate/file2.txt
-    #chown $player /$studentDIR/permissions/perm1.txt
-    #chown $player /$studentDIR/permissions/perm2.txt
-
-    # Set python to run as root
-    #chown root:root $studentDIR/manipulate/manflag.pyc
-    #chmod 4775 $studentDIR/manipulate/manflag.pyc
-    echo "$player ALL=(ALL) NOPASSWD: /usr/bin/python" >> /etc/sudoers
-    #echo "$player ALL = (root) NOPASSWD: $studentDIR/permissions/perflag.pyc" >> /etc/sudoers
-
-done
-rm -r /tmp/scenario-file-wrangler
+%{ for player in players ~}
+/home/ubuntu/file_wrangler/setup_player ${player.login} ${player.variables.manipulate} ${player.variables.permissions}
+%{ endfor ~}
+rm -r /home/ubuntu/file_wrangler

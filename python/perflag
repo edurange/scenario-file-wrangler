@@ -1,4 +1,4 @@
-#! /usr/bin/python -E
+#!/usr/bin/python3 -E
 
 import os.path
 import stat
@@ -37,14 +37,14 @@ def verifyCompletion():
 
     return perm1 + copied_perm1 + perm2 + copied_perm2
 
-if verifyCompletion() == 4: 
+if verifyCompletion() == 4:
     # Check for files
     codeDir = curDir.replace('permissions', 'codes')
     filepath = codeDir + '/permissions.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:
-            print line.strip()
+            print(line.strip())
             line = fp.readline()
 else:
-    print "Not quite. Re-read the instructions. You should have perm1.txt, copied_perm1.txt, perm2.txt and copied_perm2.txt in the directory. Use chmod to change the permissions as instructed."
+    print("Not quite. Re-read the instructions. You should have perm1.txt, copied_perm1.txt, perm2.txt and copied_perm2.txt in the directory. Use chmod to change the permissions as instructed.")

@@ -1,4 +1,4 @@
-#! /usr/bin/python -E
+#!/usr/bin/python3 -E
 
 import os.path
 import stat
@@ -30,14 +30,14 @@ def verifyCompletion():
     return file1 + renamed_file1 + file2 + copied_file2
 
 # Check for files
-if verifyCompletion() == 4: 
+if verifyCompletion() == 4:
     codeDir = curDir.replace('manipulate', 'codes')
     filepath = codeDir + '/manipulate.txt'
     with open(filepath) as fp:
         line = fp.readline()
         while line:
-            print line.strip()
+            print(line.strip())
             line = fp.readline()
 
 else:
-    print "Not quite. Re-read the instructions. You should have renamed_file1.txt, file2.txt and copied_file2.txt in the directory."
+    print("Not quite. Re-read the instructions. You should have renamed_file1.txt, file2.txt and copied_file2.txt in the directory.")
