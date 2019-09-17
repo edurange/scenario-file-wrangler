@@ -2,6 +2,7 @@
 
 import os.path
 import stat
+import sys
 
 def checkperms(filenme):
     st = os.stat(curDir + '/' + filenme)
@@ -47,4 +48,4 @@ if verifyCompletion() == 4:
             print(line.strip())
             line = fp.readline()
 else:
-    print("Not quite. Re-read the instructions. You should have perm1.txt, copied_perm1.txt, perm2.txt and copied_perm2.txt in the directory. Use chmod to change the permissions as instructed.")
+    sys.exit("Not quite. Re-read the instructions. You should have perm1.txt, copied_perm1.txt, perm2.txt and copied_perm2.txt in the directory. Use chmod to change the permissions as instructed.")

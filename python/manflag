@@ -2,6 +2,7 @@
 
 import os.path
 import stat
+import sys
 
 curDir = os.getcwd()
 
@@ -40,4 +41,4 @@ if verifyCompletion() == 4:
             line = fp.readline()
 
 else:
-    print("Not quite. Re-read the instructions. You should have renamed_file1.txt, file2.txt and copied_file2.txt in the directory.")
+    sys.exit("Not quite. Re-read the instructions. You should have renamed_file1.txt, file2.txt and copied_file2.txt in the directory.")

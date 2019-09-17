@@ -12,7 +12,7 @@ Groups:
   Users:
   - Login: instructor
 - Name: Students
-  Instructions:
+  Instructions: Log on to the file_wrangler instance and then follow the prompts in the environment.
   Access:
   - Instance: file_wrangler
     Administrator: false
