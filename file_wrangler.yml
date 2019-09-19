@@ -3,19 +3,10 @@ Name: File_Wrangler
 Description: File Wrangler teaches the basics of files and directories in the Linux command line.
 Instructions: Follow the instructions in EDURange to log in and then follow the prompts in the environment.
 Groups:
-- Name: Instructor
-  Instructions:
-  Access:
-  - Instance: file_wrangler
-    Administrator: true
-    IP_Visible: true
-  Users:
-  - Login: instructor
 - Name: Students
   Instructions: Log on to the file_wrangler instance and then follow the prompts in the environment.
   Access:
   - Instance: file_wrangler
-    Administrator: false
     IP_Visible: true
   Users:
   - Login: student
