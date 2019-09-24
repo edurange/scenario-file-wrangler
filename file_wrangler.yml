@@ -18,11 +18,11 @@ Groups:
 Instances:
 - Name: file_wrangler
 Scoring:
-- Text: What is the full path of your directory when you typed the pwd command? (Please replace your username with the word username. For example, if you were in the permissions directory, you would type the following /home/username/permissions.)
+- Text: What is the full path of your directory when you typed the pwd command?
   Type: String
   Options: []
   Values:
-  - Value: '/home/username'
+  - Value: /home/${player.login}
     Points: '1'
   Order: 1
   Points: 1
@@ -90,11 +90,11 @@ Scoring:
     Points: '1'
   Order: 8
   Points: 1
-- Text: What is the full path of the directory you are in after typing cd ..? (Please replace your username with the word username. For example, if you were in the permissions directory, you would type /home/username/permissions.)
+- Text: What is the full path of the directory you are in after typing cd ..?
   Type: String
   Options: []
   Values:
-  - Value: '/home/username'
+  - Value: "/home/${player.login}"
     Points: '1'
   Order: 9
   Points: 1
@@ -110,19 +110,15 @@ Scoring:
   Points: 1
 - Text: What is the flag you discovered by running sudo manflag in the manipulate directory?
   Type: String
-  Options:
-  - variable-group-player
   Values:
-  - Value: Students:manipulate
+  - Value: "${player.variables.manipulate}"
     Points: '10'
   Order: 11
   Points: 10
 - Text: What is the flag you discovered by running sudo perflag in the permissions directory?
   Type: String
-  Options:
-  - variable-group-player
   Values:
-  - Value: Students:permissions
+  - Value: "${player/variables/manipulate}"
     Points: '10'
   Order: 12
   Points: 10
