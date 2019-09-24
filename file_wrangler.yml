@@ -118,7 +118,7 @@ Scoring:
 - Text: What is the flag you discovered by running sudo perflag in the permissions directory?
   Type: String
   Values:
-  - Value: "${player/variables/manipulate}"
+  - Value: "${player.variables.manipulate}"
     Points: '10'
   Order: 12
   Points: 10
