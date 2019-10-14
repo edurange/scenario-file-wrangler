@@ -143,8 +143,43 @@ data "template_cloudinit_config" "file_wrangler" {
   }
 }
 
+resource "aws_vpc" "cloud" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name        = "file_wrangler/cloud"
+    scenario_id = var.scenario_id
+  }
+}
+
+resource "aws_internet_gateway" "default"{
+  vpc_id = aws_vpc.cloud.id
+}
+
+resource "aws_subnet" "public" {
+  vpc_id        = aws_vpc.cloud.id
+  cidr_block    = "10.0.0.0/24"
+  tags = {
+    Name = "file_wrangler/public"
+  }
+}
+
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.cloud.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.default.id
+  }
+
+}
+
+resource "aws_route_table_association" "strace_subnut_route_table_association"{
+  subnet_id      = aws_subnet.public.id
+  route_table_id = aws_route_table.public.id
+}
 resource "aws_security_group" "ssh_in_http_out" {
-  name = "getting_started/${var.scenario_id}"
+  vpc_id = aws_vpc.cloud.id
+  name = "file_wrangler/${var.scenario_id}"
 
   ingress {
     from_port   = "22"
@@ -170,14 +205,18 @@ resource "aws_security_group" "ssh_in_http_out" {
 }
 
 resource "aws_instance" "file_wrangler" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.nano"
-  user_data_base64       = data.template_cloudinit_config.file_wrangler.rendered
-  key_name               = aws_key_pair.key.key_name
-  vpc_security_group_ids = [aws_security_group.ssh_in_http_out.id]
+  ami                    	 = data.aws_ami.ubuntu.id
+  instance_type          	 = "t2.nano"
+  private_ip             	 = "10.0.0.5"
+  associate_public_ip_address    = true
+  source_dest_check      	 = false
+  user_data_base64       	 = data.template_cloudinit_config.file_wrangler.rendered
+  subnet_id                      = aws_subnet.public.id
+  key_name               	 = aws_key_pair.key.key_name
+  vpc_security_group_ids 	 = [aws_security_group.ssh_in_http_out.id]
 
   tags = merge(local.common_tags, {
-    Name = "getting_started"
+    Name = "file_wrangler"
   })
 
   connection {
