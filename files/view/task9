@@ -14,6 +14,6 @@ The command pwd, will show you where you are in the Linux file system.
 Steps:
 1. Type cd .. into the prompt.
 2. Type pwd into the prompt. You should see that you are back in the home directory for the account you log in with.
-3. Answer question 8 in EDURange
+3. Answer question 9 in EDURange
 4. Go to the next task by typing the following into the prompt: cat task10
 ==========================================================================
