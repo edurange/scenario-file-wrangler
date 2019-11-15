@@ -173,7 +173,7 @@ resource "aws_route_table" "public" {
 
 }
 
-resource "aws_route_table_association" "strace_subnut_route_table_association"{
+resource "aws_route_table_association" "file_wrangler_subnet_route_table_association"{
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
 }
@@ -254,12 +254,24 @@ resource "aws_instance" "file_wrangler" {
     destination = "/home/ubuntu/file_wrangler"
   }
 
+  provisioner "file" {
+    source = "${path.module}/ttylog"
+    destination = "/home/ubuntu/file_wrangler"
+  }
+
+  provisioner "file" {
+    source = "${path.module}/tty_setup"
+    destination = "/home/ubuntu/file_wrangler/tty_setup"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "set -eux",
       "cloud-init status --wait --long",
       "chmod +x /home/ubuntu/file_wrangler/setup",
       "chmod +x /home/ubuntu/file_wrangler/setup_player",
+      "chmod +x /home/ubuntu/file_wrangler/tty_setup",
+      "sudo /home/ubuntu/file_wrangler/tty_setup",
       "sudo /home/ubuntu/file_wrangler/setup"
     ]
   }
