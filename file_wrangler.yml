@@ -2,6 +2,7 @@
 Name: File_Wrangler
 Description: File Wrangler teaches the basics of files and directories in the Linux command line.
 Instructions: Follow the instructions in EDURange to log in and then follow the prompts in the environment.
+Codelab: https://edurange.github.io/file_wrangler_tutorial/
 Groups:
 - Name: Students
   Instructions: Log on to the file_wrangler instance and then follow the prompts in the environment.
@@ -98,13 +99,13 @@ Scoring:
     Points: '1'
   Order: 9
   Points: 1
-- Text: How many HIDDEN DIRECTORIES are in the home directory?
+- Text: How many HIDDEN DIRECTORIES are in the home directory? (. and .. don't count)
   Type: Number
   Options:
   - accept-integer
   - accept-decimal
   Values:
-  - Value: '4'
+  - Value: '2'
     Points: '1'
   Order: 10
   Points: 1

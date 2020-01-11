@@ -1,10 +1,10 @@
- _______        _      __ __
-|__   __|      | |    /_ /_ |
-   | | __ _ ___| | __  | || |
-   | |/ _` / __| |/ /  | || |
-   | | (_| \__ \   <   | || |
-   |_|\__,_|___/_|\_\  |_||_|
-
+  _______        _       ___
+ |__   __|      | |     / _ \ 
+    | | __ _ ___| | __ | (_) |
+    | |/ _` / __| |/ /  \__, |
+    | | (_| \__ \   <     / / 
+    |_|\__,_|___/_|\_\   /_/  
+                              
 Steps:
 1. Change into the manipulate directory and run the list (ls) command to view the files in this directory.
 2. Renaming files
@@ -15,6 +15,6 @@ Steps:
    b. Use the cp command to copy file2.txt to copied_file2.txt.
 4. Type the following into the prompt for the flag: sudo manflag
 5. Answer question 11 in EDURange
-6. Change into the permissions directory.
-7. Go to the next task by typing the following into the prompt: cat task12
+6. Go back to your home directory, and then go to the permissions directory.
+7. Go to the next task by typing the following into the prompt: cat task10
 ==========================================================================
