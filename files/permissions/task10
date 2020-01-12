@@ -11,12 +11,12 @@ Steps:
 3. Copy the perm1.txt to copied_perm1.txt
 4. Changing permissions
    a. Look up the manual entry for the chmod command.
-   b. Use the chmod command to change the file permissions to:
+   b. Use the chmod command to change the permissions of copied_perm1.txt to:
       i.   Owner = Read + Write
       ii.  Group = Read + Write
       iii. User  = No permissions
    c. Copy the perm2.txt to copied_perm2.txt
-   d. Use the chmod command to change the file permissions to:
+   d. Use the chmod command to change the permissions of copied_perm2.txt to:
       i.   Owner = Read + Write + Execute
       ii.  Group = Read + Write
       iii. User  = Read only
