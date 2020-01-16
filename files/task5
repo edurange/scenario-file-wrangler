@@ -11,5 +11,5 @@ The cd command allows you to change into another directory.  The format is as fo
 Steps:
 1. Change into the view directory and run the list (ls) command to view the files in this directory.
 2. Answer question 6 in EDURange
-3. Go to the next task by typing the following into the prompt: cat task7
+3. Go to the next task by typing the following into the prompt: cat task6
 ==========================================================================

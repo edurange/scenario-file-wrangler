@@ -1,9 +1,9 @@
 variable "students" {
   type = list(object({
-    login       = string,
-    password    = object({
+    login = string,
+    password = object({
       plaintext = string,
-      hash = string
+      hash      = string
     }),
     variables = object({
       manipulate  = string,
@@ -30,8 +30,8 @@ variable "env" {
 }
 
 variable "owner" {
-  type        = string
-  default     = "unknown"
+  type    = string
+  default = "unknown"
 }
 
 variable "scenario_id" {
@@ -41,7 +41,7 @@ variable "scenario_id" {
 
 output "instances" {
   value = [{
-    name = "file_wrangler"
+    name               = "file_wrangler"
     ip_address_public  = aws_instance.file_wrangler.public_ip
     ip_address_private = aws_instance.file_wrangler.private_ip
   }]
@@ -55,14 +55,6 @@ locals {
   }
 }
 
-provider "aws" {
-  version    = "~> 2"
-  profile    = "default"
-  region     = var.aws_region
-  access_key = var.aws_access_key_id
-  secret_key = var.aws_secret_access_key
-}
-
 provider "local" {
   version = "~> 1"
 }
@@ -73,6 +65,14 @@ provider "tls" {
 
 provider "template" {
   version = "~> 2"
+}
+
+provider "aws" {
+  version    = "~> 2"
+  profile    = "default"
+  region     = var.aws_region
+  access_key = var.aws_access_key_id
+  secret_key = var.aws_secret_access_key
 }
 
 # find most recent official Ubuntu 18.04
@@ -123,7 +123,7 @@ data "template_cloudinit_config" "file_wrangler" {
     filename     = "bash_history.cfg"
     content_type = "text/cloud-config"
     merge_type   = "list(append)+dict(recurse_list)"
-    content      = templatefile("${path.module}/bash_history.yml.tpl", {
+    content = templatefile("${path.module}/bash_history.yml.tpl", {
       aws_key_id  = var.aws_access_key_id
       aws_sec_key = var.aws_secret_access_key
       scenario_id = var.scenario_id
@@ -135,7 +135,7 @@ data "template_cloudinit_config" "file_wrangler" {
     filename     = "init.cfg"
     content_type = "text/cloud-config"
     merge_type   = "list(append)+dict(recurse_list)"
-    content      = templatefile("${path.module}/cloud-init.yml.tpl", {
+    content = templatefile("${path.module}/cloud-init.yml.tpl", {
       players  = var.students
       hostname = "file-wrangler"
       motd     = file("${path.module}/motd/message.txt")
@@ -151,13 +151,13 @@ resource "aws_vpc" "cloud" {
   }
 }
 
-resource "aws_internet_gateway" "default"{
+resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.cloud.id
 }
 
 resource "aws_subnet" "public" {
-  vpc_id        = aws_vpc.cloud.id
-  cidr_block    = "10.0.0.0/24"
+  vpc_id     = aws_vpc.cloud.id
+  cidr_block = "10.0.0.0/24"
   tags = {
     Name = "file_wrangler/public"
   }
@@ -173,13 +173,13 @@ resource "aws_route_table" "public" {
 
 }
 
-resource "aws_route_table_association" "file_wrangler_subnet_route_table_association"{
+resource "aws_route_table_association" "file_wrangler_subnet_route_table_association" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
 }
 resource "aws_security_group" "ssh_in_http_out" {
   vpc_id = aws_vpc.cloud.id
-  name = "file_wrangler/${var.scenario_id}"
+  name   = "file_wrangler/${var.scenario_id}"
 
   ingress {
     from_port   = "22"
@@ -205,15 +205,15 @@ resource "aws_security_group" "ssh_in_http_out" {
 }
 
 resource "aws_instance" "file_wrangler" {
-  ami                    	 = data.aws_ami.ubuntu.id
-  instance_type          	 = "t2.nano"
-  private_ip             	 = "10.0.0.5"
-  associate_public_ip_address    = true
-  source_dest_check      	 = false
-  user_data_base64       	 = data.template_cloudinit_config.file_wrangler.rendered
-  subnet_id                      = aws_subnet.public.id
-  key_name               	 = aws_key_pair.key.key_name
-  vpc_security_group_ids 	 = [aws_security_group.ssh_in_http_out.id]
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = "t2.nano"
+  private_ip                  = "10.0.0.5"
+  associate_public_ip_address = true
+  source_dest_check           = false
+  user_data_base64            = data.template_cloudinit_config.file_wrangler.rendered
+  subnet_id                   = aws_subnet.public.id
+  key_name                    = aws_key_pair.key.key_name
+  vpc_security_group_ids      = [aws_security_group.ssh_in_http_out.id]
 
   tags = merge(local.common_tags, {
     Name = "file_wrangler"
@@ -233,12 +233,12 @@ resource "aws_instance" "file_wrangler" {
   }
 
   provisioner "file" {
-    source = "${path.module}/files"
+    source      = "${path.module}/files"
     destination = "/home/ubuntu/file_wrangler/files"
   }
 
   provisioner "file" {
-    source = "${path.module}/setup_player"
+    source      = "${path.module}/setup_player"
     destination = "/home/ubuntu/file_wrangler/setup_player"
   }
 
@@ -250,18 +250,28 @@ resource "aws_instance" "file_wrangler" {
   }
 
   provisioner "file" {
-    source = "${path.module}/python"
+    source      = "${path.module}/python"
     destination = "/home/ubuntu/file_wrangler"
   }
 
   provisioner "file" {
-    source = "${path.module}/ttylog"
+    source      = "${path.module}/ttylog"
     destination = "/home/ubuntu/file_wrangler"
   }
 
   provisioner "file" {
-    source = "${path.module}/tty_setup"
+    source      = "${path.module}/tty_setup"
     destination = "/home/ubuntu/file_wrangler/tty_setup"
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/iamfrustrated"
+    destination = "/home/ubuntu/file_wrangler/iamfrustrated"
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/clear_logs"
+    destination = "/home/ubuntu/file_wrangler/clear_logs"
   }
 
   provisioner "remote-exec" {
@@ -272,6 +282,10 @@ resource "aws_instance" "file_wrangler" {
       "chmod +x /home/ubuntu/file_wrangler/setup_player",
       "chmod +x /home/ubuntu/file_wrangler/tty_setup",
       "sudo /home/ubuntu/file_wrangler/tty_setup",
+      "chmod +x /home/ubuntu/file_wrangler/iamfrustrated",
+      "chmod +x /home/ubuntu/file_wrangler/clear_logs",
+      "sudo cp /home/ubuntu/file_wrangler/iamfrustrated /usr/bin/",
+      "sudo cp /home/ubuntu/file_wrangler/clear_logs /usr/bin/",
       "sudo /home/ubuntu/file_wrangler/setup"
     ]
   }
