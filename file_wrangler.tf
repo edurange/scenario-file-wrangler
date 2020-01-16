@@ -206,7 +206,7 @@ resource "aws_security_group" "ssh_in_http_out" {
 
 resource "aws_instance" "file_wrangler" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t2.nano"
+  instance_type               = "t2.micro"
   private_ip                  = "10.0.0.5"
   associate_public_ip_address = true
   source_dest_check           = false
