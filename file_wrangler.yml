@@ -41,7 +41,7 @@ Scoring:
   - accept-integer
   - accept-decimal
   Values:
-  - Value: '13'
+  - Value: '12'
     Points: '1'
   Order: 3
   Points: 1
@@ -69,7 +69,7 @@ Scoring:
   - accept-integer
   - accept-decimal
   Values:
-  - Value: '9'
+  - Value: '8'
     Points: '1'
   Order: 6
   Points: 1
